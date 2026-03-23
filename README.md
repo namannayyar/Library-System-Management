@@ -555,5 +555,5 @@ This project demonstrates the application of SQL skills in creating and managing
 
 This project is part of my portfolio, showcasing the SQL skills essential for data analyst roles. If you have any questions, feedback, or would like to collaborate, feel free to get in touch @nayyar.naman@gmail.com
 
-LinkedIn: [Connect with me professionally])
+LinkedIn: [Connect with me professionally](https://www.linkedin.com/in/naman-nayyar-17b10a105/)
 Thank you for your support, and I look forward to connecting with you!

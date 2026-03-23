@@ -531,6 +531,8 @@ GROUP BY m.member_id;
 
 ```
 
+
+
 ## Reports
 
 - **Database Schema**: Detailed table structures and relationships.

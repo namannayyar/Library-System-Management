@@ -364,6 +364,7 @@ books as bk
 ON ist.issued_book_isbn = bk.isbn
 GROUP BY 1, 2;
 
+--Testing the function
 SELECT * FROM branch_reports;
 ```
 
@@ -383,6 +384,7 @@ WHERE member_id IN (SELECT
                     )
 ;
 
+--Testing the function
 SELECT * FROM active_members;
 
 ```
@@ -409,6 +411,22 @@ GROUP BY 1, 2
 **Task 18: Identify Members Issuing High-Risk Books**  
 Write a query to identify members who have issued books more than twice with the status "damaged" in the books table. Display the member name, book title, and the number of times they've issued damaged books.    
 
+```sql
+
+SELECT 
+    m.member_name,
+    ist.issued_book_name,
+    COUNT(ist.issued_book_isbn) AS damaged_books
+FROM issued_status ist
+JOIN members m 
+    ON m.member_id = ist.issued_member_id
+JOIN return_status rs 
+    ON rs.issued_id = ist.issued_id
+WHERE rs.book_quality = 'Damaged'
+GROUP BY m.member_name, ist.issued_book_name
+HAVING COUNT(ist.issued_book_isbn) > 2;
+
+```
 
 **Task 19: Stored Procedure**
 Objective:
@@ -459,7 +477,7 @@ BEGIN
 END;
 $$
 
--- Testing The function
+-- Testing the function
 SELECT * FROM books;
 -- "978-0-553-29698-2" -- yes
 -- "978-0-375-41398-8" -- no
@@ -487,7 +505,33 @@ Description: Write a CTAS query to create a new table that lists each member and
     Number of overdue books
     Total fines
 
+``sql
 
+CREATE TABLE overdue_fines AS
+SELECT 
+    m.member_id,
+    
+    COUNT(CASE 
+            WHEN return_date IS NULL 
+             AND CURRENT_DATE - ist.issued_date > 30 
+         THEN 1 
+    END) AS number_of_overdue_books,
+
+    SUM(CASE 
+            WHEN return_date IS NULL 
+             AND CURRENT_DATE - ist.issued_date > 30 
+         THEN (CURRENT_DATE - ist.issued_date - 30) * 0.50
+         ELSE 0
+    END) AS total_fines,
+    COUNT(ist.issued_book_isbn) AS total_books_issued
+FROM issued_status ist
+JOIN members m 
+    ON m.member_id = ist.issued_member_id
+Left JOIN return_status rs 
+    ON rs.issued_id = ist.issued_id
+GROUP BY m.member_id;
+
+```
 
 ## Reports
 
@@ -510,13 +554,9 @@ This project demonstrates the application of SQL skills in creating and managing
 3. **Run the Queries**: Use the SQL queries in the `analysis_queries.sql` file to perform the analysis.
 4. **Explore and Modify**: Customize the queries as needed to explore different aspects of the data or answer additional questions.
 
-## Author - Zero Analyst
+## Author - Naman Nayyar
 
-This project showcases SQL skills essential for database management and analysis. For more content on SQL and data analysis, connect with me through the following channels:
+This project is part of my portfolio, showcasing the SQL skills essential for data analyst roles. If you have any questions, feedback, or would like to collaborate, feel free to get in touch @nayyar.naman@gmail.com
 
-- **YouTube**: [Subscribe to my channel for tutorials and insights](https://www.youtube.com/@zero_analyst)
-- **Instagram**: [Follow me for daily tips and updates](https://www.instagram.com/zero_analyst/)
-- **LinkedIn**: [Connect with me professionally](https://www.linkedin.com/in/najirr)
-- **Discord**: [Join our community for learning and collaboration](https://discord.gg/36h5f2Z5PK)
-
-Thank you for your interest in this project!
+LinkedIn: [Connect with me professionally])
+Thank you for your support, and I look forward to connecting with you!

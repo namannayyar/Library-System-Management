@@ -1,0 +1,22 @@
+"issued_member_id","member_name","book_title","issued_date","over_dues_date"
+"C102","Bob Smith","Fahrenheit 451","2024-03-26",715
+"C103","Carol Davis","Dune","2024-03-27",714
+"C104","Dave Wilson","Where the Wild Things Are","2024-03-28",713
+"C105","Eve Brown","The Road","2026-02-07",32
+"C105","Eve Brown","The Kite Runner","2024-03-29",712
+"C105","Eve Brown","Charlotte's Web","2024-03-30",711
+"C105","Eve Brown","Beloved","2024-03-31",710
+"C105","Eve Brown","A Tale of Two Cities","2024-04-01",709
+"C105","Eve Brown","The Stand","2024-04-02",708
+"C106","Frank Thomas","To Kill a Mockingbird","2024-04-04",706
+"C106","Frank Thomas","Moby Dick","2024-04-03",707
+"C106","Frank Thomas","Animal Farm","2024-03-10",731
+"C106","Frank Thomas","The Hobbit","2024-04-05",705
+"C107","Grace Taylor","The Diary of a Young Girl","2024-04-07",703
+"C107","Grace Taylor","Sapiens: A Brief History of Humankind","2024-04-08",702
+"C107","Grace Taylor","1491: New Revelations of the Americas Before Columbus","2024-04-09",701
+"C107","Grace Taylor","The Catcher in the Rye","2024-04-10",700
+"C107","Grace Taylor","Angels & Demons","2024-04-06",704
+"C108","Henry Anderson","The Great Gatsby","2024-04-11",699
+"C109","Ivy Martinez","Harry Potter and the Sorcerers Stone","2024-04-12",698
+"C110","Jack Wilson","Animal Farm","2024-04-13",697

@@ -505,8 +505,8 @@ Description: Write a CTAS query to create a new table that lists each member and
     Number of overdue books
     Total fines
 
-``sql
 
+``sql
 CREATE TABLE overdue_fines AS
 SELECT 
     m.member_id,
@@ -528,11 +528,7 @@ JOIN members m
 Left JOIN return_status rs 
     ON rs.issued_id = ist.issued_id
 GROUP BY m.member_id;
-
 ```
-
-
-
 ## Reports
 
 - **Database Schema**: Detailed table structures and relationships.

@@ -510,13 +510,11 @@ Description: Write a CTAS query to create a new table that lists each member and
 CREATE TABLE overdue_fines AS
 SELECT 
     m.member_id,
-    
     COUNT(CASE 
             WHEN return_date IS NULL 
              AND CURRENT_DATE - ist.issued_date > 30 
          THEN 1 
     END) AS number_of_overdue_books,
-
     SUM(CASE 
             WHEN return_date IS NULL 
              AND CURRENT_DATE - ist.issued_date > 30 
@@ -547,7 +545,7 @@ This project demonstrates the application of SQL skills in creating and managing
 
 1. **Clone the Repository**: Clone this repository to your local machine.
    ```sh
-   git clone https://github.com/najirh/Library-System-Management---P2.git
+   git clone [https://github.com/namannayyar/Library-System-Management[
    ```
 
 2. **Set Up the Database**: Execute the SQL scripts in the `database_setup.sql` file to create and populate the database.
